@@ -14,7 +14,7 @@ class PageController extends AbstractController
     public function about(): Response
     {
         return $this->render('page/about.html.twig', [
-            'controller_name' => 'PageController About',
+            'bg_image' => 'clean/assets/img/about-bg.jpg',
         ]);
     }
 
@@ -24,7 +24,7 @@ class PageController extends AbstractController
     public function contact(): Response
     {
         return $this->render('page/contact.html.twig', [
-            'controller_name' => 'PageController Contact',
+            'bg_image' => 'clean/assets/img/contact-bg.jpg',
         ]);
     }
 }

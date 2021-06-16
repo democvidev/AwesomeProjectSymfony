@@ -13,7 +13,7 @@ class PostController extends AbstractController
      */
     public function home(): Response
     {
-        return $this->render('post/index.html.twig', [
+        return $this->render('post/home.html.twig', [
             'controller_name' => 'PostController Index',
         ]);
     }
@@ -23,7 +23,7 @@ class PostController extends AbstractController
      */
     public function view($id): Response
     {
-        return $this->render('post/index.html.twig', [
+        return $this->render('post/view.html.twig', [
             'controller_name' => 'PostController Single',
             'id' => $id,
         ]);

@@ -14,7 +14,7 @@ class PostController extends AbstractController
     public function home(): Response
     {
         return $this->render('post/home.html.twig', [
-            'bg_image' => 'home-bg.jpg',
+            'bg_image' => 'clean/assets/img/home-bg.jpg',
         ]);
     }
 
@@ -24,7 +24,7 @@ class PostController extends AbstractController
     public function view($id): Response
     {
         return $this->render('post/view.html.twig', [
-            'bg_image' => 'post-sample-mage.jpg',
+            'bg_image' => 'clean/assets/img/post-bg.jpg',
             'id' => $id,
         ]);
     }

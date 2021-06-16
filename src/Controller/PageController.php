@@ -13,7 +13,7 @@ class PageController extends AbstractController
      */
     public function about(): Response
     {
-        return $this->render('page/index.html.twig', [
+        return $this->render('page/about.html.twig', [
             'controller_name' => 'PageController About',
         ]);
     }
@@ -23,7 +23,7 @@ class PageController extends AbstractController
      */
     public function contact(): Response
     {
-        return $this->render('page/index.html.twig', [
+        return $this->render('page/contact.html.twig', [
             'controller_name' => 'PageController Contact',
         ]);
     }

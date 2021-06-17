@@ -40,6 +40,10 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('page_about') }}">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('post_view', {id: 25}) }}">Sample Post</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('page_contact') }}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('app_register') }}">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('app_login') }}">Log In</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('app_logout') }}">Log Out</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -68,12 +72,12 @@
                 </div>
             </main>
         {% endfor %} 
-        {% for message in app.flashes('success') %}
+        {% for flashSuccess in app.flashes('success') %}
         <main class="mb-4">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="alert alert-success">{{ message }}</div>
+                        <div class="alert alert-success">{{ flashSuccess }}</div>
                     </div>
                 </div>
             </div>

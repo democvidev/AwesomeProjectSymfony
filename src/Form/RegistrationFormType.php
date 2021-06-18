@@ -42,7 +42,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'label' => 'Password',
                 'attr' => ['autocomplete' => 'new-password',
-                            'attr'=> 'form-control'],
+                            'class'=> 'form-control'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',

@@ -65,7 +65,7 @@ class AdminController extends AbstractController
         // test du l'envoi du formulaire et les contraintes de validation
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // initialisation des valeurs par défaut 
+            // initialisation des valeurs par défaut
             $post->setUser($this->getUser()); // user connecté
             $post->setActive(false); // article non activé
             $em = $this->getDoctrine()->getManager();

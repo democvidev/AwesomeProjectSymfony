@@ -74,6 +74,7 @@ class Category
         return $this->slug;
     }
 
+    // doctrine gère automatiquement le slug
     // public function setSlug(string $slug): self
     // {
     //     $this->slug = $slug;

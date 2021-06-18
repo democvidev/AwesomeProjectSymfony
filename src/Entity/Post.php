@@ -40,6 +40,7 @@ class Post
     private $image;
 
     /**
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -83,7 +84,7 @@ class Post
         return $this->slug;
     }
 
-    // gedmo s'occupe de l'hydratation du slug
+    // gedmo s'occupe automatiquement de l'hydratation du slug
     // public function setSlug(string $slug): self
     // {
     //     $this->slug = $slug;
@@ -120,12 +121,13 @@ class Post
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
+    // gestion automatique par gedmo
+    // public function setCreatedAt(\DateTimeInterface $createdAt): self
+    // {
+    //     $this->createdAt = $createdAt;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getActive(): ?bool
     {

@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Post;
 use App\Form\CategoryFormType;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Form\PostFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/admin", name="admin_")
@@ -45,6 +47,34 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin_home');
         }
         return $this->render('admin/category/add.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/post/add", name="add_post")
+     */
+    public function addPost(Request $request): Response
+    {
+        $post = new Post(); // on peut passer des paramètres pour le costructeur au moment de l'instanciation
+        // création du formulaire, instantiation de la classe + le formulaire
+        $form = $this->createForm(PostFormType::class, $post);
+        // repère les infos de la requête reçu par l'injection de dépendance
+        $form->handleRequest($request);
+
+        // test du l'envoi du formulaire et les contraintes de validation
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // initialisation des valeurs par défaut 
+            $post->setUser($this->getUser()); // user connecté
+            $post->setActive(false); // article non activé
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($post);
+            $em->flush();
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('admin/post/add.html.twig', [
             'form' => $form->createView(),
         ]);
     }

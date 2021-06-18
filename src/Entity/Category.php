@@ -51,6 +51,13 @@ class Category
         $this->categories = new ArrayCollection();
         $this->posts = new ArrayCollection();
     }
+    // Crée une représentation textuelle de l'objet
+    public function __toString()
+    {
+        return $this->name;
+
+        // return $this->slug . $this->id; //on peut fabriquer le string nécessaire
+    }
 
     public function getId(): ?int
     {

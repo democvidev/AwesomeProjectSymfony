@@ -24,7 +24,7 @@ class PostFormType extends AbstractType
                 ]
             ])
             // ->add('slug')
-            ->add('content', TextareaType::class,[
+            ->add('content', CKEditorType::class,[
                 'label' => 'Content'
             ])
             ->add('image', TextType::class, [])
